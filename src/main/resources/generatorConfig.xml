@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库的JDBC驱动的jar包地址 本地地址，请自行修改 -->
+    <classPathEntry location="/Users/lyx/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar"/>
+
+    <context id="MySqlTables" targetRuntime="MyBatis3">
+        <!-- 根据需要自行选择插件 -->
+        <!--<plugin type="com.letvcloud.uc.infra.mybatis.plugin.LastInsertIdPlugin"></plugin>-->
+        <!--<plugin type="com.letvcloud.uc.infra.mybatis.plugin.MySqlLimitPlugin"></plugin>-->
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- <plugin type="ViewPlugin"></plugin> -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://115.28.17.174:3306/boke?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"
+                        userId="root" password="liyuxin">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.yuxin.domain"
+                            targetProject="/Users/lyx/IdeaProjects/test/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mybatis.sql"
+                         targetProject="/Users/lyx/IdeaProjects/test/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.yuxin.mapper"
+                             type="XMLMAPPER"
+                             targetProject="/Users/lyx/IdeaProjects/test/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="boke" tableName="user" domainObjectName="UserDo"/>
+        <table schema="boke" tableName="usertype" domainObjectName="UserTypeDo"/>
+        <table schema="boke" tableName="article" domainObjectName="ArticleDo"/>
+    </context>
+</generatorConfiguration>

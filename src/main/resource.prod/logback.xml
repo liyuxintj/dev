@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+    <appender name="main" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>//usr/local/logs/logs/main.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>
+                /usr/local/logs/main%i.log
+            </FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>5</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>500MB</MaxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <Pattern>[%d{yyyyMMdd HH:mm:ss}] [%-5level] [%-30logger{0}][%-3L] [SeqId:%X{SeqId}] - %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <File>/usr/local/logs/error.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <FileNamePattern>
+                /usr/local/logs/error%i.log
+            </FileNamePattern>
+            <MinIndex>1</MinIndex>
+            <MaxIndex>5</MaxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>100MB</MaxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <Pattern>[%d{yyyyMMdd HH:mm:ss}] [%-5level] [%-30logger{0}][%-3L] [SeqId:%X{SeqId}] - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <logger  name="com.yuxin" additivity="true" level="error" >
+        <appender-ref ref="error"/>
+    </logger>
+    <logger name="apierror" additivity="true" level="info">
+        <appender-ref ref="error"/>
+    </logger>
+
+    <logger name="apiLogger" additivity="true" level="info">
+        <appender-ref ref="main"/>
+    </logger>
+
+</configuration>
