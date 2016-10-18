@@ -1,5 +1,107 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>个人网站</title>
+    <style >
+        body {
+            padding-top: 50px;
+        }
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+    </style>
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/button.css" rel="stylesheet">
+
+    <!-- 只有使用字体图标时才需要加载 Font-Awesome -->
+    <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
 <body>
-<h2>Hello World!</h2>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">玉新个人网站</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">主页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>没事做个调查</h1>
+        <p class="lead">这是一个简单的网站.<br> Too yong too simple.</p>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">我帅吗？</h3>
+        </div>
+        <div class="panel-body">
+            请选择，谢谢。
+            <div class="showcase-examples" style="text-align: center">
+                <button id="support" class="button button-3d button-action button-circle button-jumbo"><i class="fa fa-thumbs-up"></i></button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="nosupport" class="button button-3d button-caution button-circle button-jumbo"><i class="fa fa-thumbs-down"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-success" role="alert" style="display: none">
+        <strong>好的!</strong> 有空喝酒兄弟！
+    </div>
+    <div class="alert alert-danger" role="alert" style="display: none">
+        <strong>我擦!</strong> 丫丫的我不帅你帅！
+    </div>
+
+
+</div><!-- /.container -->
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="dist/js/bootstrap.min.js"></script>
+<script>
+    $("#nosupport").click(function () {
+        $(".alert-success").css("display","none");
+        $(".alert-danger").css("display","");
+    });
+
+    $("#support").click(function () {
+        $(".alert-danger").css("display","none");
+        $(".alert-success").css("display","");
+    });
+
+</script>
 </body>
 </html>

@@ -7,16 +7,16 @@
 
     <!-- 自动扫描Mapper包，注册Mapper方式:使用自动扫描包的方式来注册各种Mapper -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.letvcloud.uc"/>
-        <property name="markerInterface" value="com.yuxin.mapper.MakeInterface"/>
-        <property name="annotationClass" value="com.yuxin.mapper.annotations.MyBatisDao"/>
+        <property name="basePackage" value="com.yuxin.mapper"/>
+        <!--<property name="markerInterface" value="com.yuxin.mapper.MakeInterface"/>-->
+        <!--<property name="annotationClass" value="com.yuxin.mapper.annotations.MyBatisDao"/>-->
     </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="com.yuxin.domain"/>
         <!-- 显式指定Mapper文件位置 -->
-        <property name="mapperLocations" value="classpath:/mybatis/sql/ArticleDoMapper.xml" />
+        <property name="mapperLocations" value="classpath:/mybatis/sql/*.xml" />
     </bean>
 
 

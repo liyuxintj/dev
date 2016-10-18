@@ -25,24 +25,25 @@
         </javaTypeResolver>
 
         <javaModelGenerator targetPackage="com.yuxin.domain"
-                            targetProject="/Users/lyx/IdeaProjects/test/src/main/java">
+                            targetProject="/Users/lyx/IdeaProjects/dev/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="mybatis.sql"
-                         targetProject="/Users/lyx/IdeaProjects/test/src/main/resources">
+                         targetProject="/Users/lyx/IdeaProjects/dev/src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <javaClientGenerator targetPackage="com.yuxin.mapper"
                              type="XMLMAPPER"
-                             targetProject="/Users/lyx/IdeaProjects/test/src/main/java">
+                             targetProject="/Users/lyx/IdeaProjects/dev/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="boke" tableName="user" domainObjectName="UserDo"/>
-        <table schema="boke" tableName="usertype" domainObjectName="UserTypeDo"/>
-        <table schema="boke" tableName="article" domainObjectName="ArticleDo"/>
+        <!--<table schema="boke" tableName="user" domainObjectName="UserDo"/>-->
+        <!--<table schema="boke" tableName="usertype" domainObjectName="UserTypeDo"/>-->
+        <!--<table schema="boke" tableName="article" domainObjectName="ArticleDo"/>-->
+        <table schema="boke" tableName="question" domainObjectName="QuestionDo"/>
     </context>
 </generatorConfiguration>
