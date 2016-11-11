@@ -8,8 +8,6 @@
 
     <context id="MySqlTables" targetRuntime="MyBatis3">
         <!-- 根据需要自行选择插件 -->
-        <!--<plugin type="com.letvcloud.uc.infra.mybatis.plugin.LastInsertIdPlugin"></plugin>-->
-        <!--<plugin type="com.letvcloud.uc.infra.mybatis.plugin.MySqlLimitPlugin"></plugin>-->
         <commentGenerator>
             <property name="suppressDate" value="false"/>
             <property name="suppressAllComments" value="true"/>

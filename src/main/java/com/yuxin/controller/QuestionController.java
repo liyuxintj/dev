@@ -33,4 +33,21 @@ public class QuestionController {
         return array.toJSONString();
     }
 
+
+    @RequestMapping(value = "/getaaa")
+    @ResponseBody
+    public JSONObject getaaa(){
+        List<QuestionDo> list = questionService.getList();
+        JSONArray array = new JSONArray();
+        for(QuestionDo questionDo : list){
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("id",questionDo.getId());
+            jsonObject.put("question",questionDo.getQuestion());
+            array.add(jsonObject);
+        }
+        JSONObject aaa = new JSONObject();
+        aaa.put("啊啊啊","是的是的");
+        return aaa;
+    }
+
 }

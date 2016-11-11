@@ -8,27 +8,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		">
     <!-- Enables the Spring MVC @Controller programming model -->
-    <mvc:annotation-driven/>
-     
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" />
+            </bean>
+            <ref bean="fastJsonHttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
 
-    <!-- register DefaultAnnotationHandlerMapping and AnnotationMethodHandlerAdapter instance <mvc:annotation-driven /> -->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="fastJsonHttpMessageConverter"/>
-            </list>
-        </property>
-    </bean>
 
-    <!--<mvc:interceptors>-->
-        <!--&lt;!&ndash; 日志拦截器 &ndash;&gt;-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/**" />-->
-            <!--<mvc:exclude-mapping path="/api/app/startup/**" />-->
-            <!--<bean class="com.letvcloud.saas.api.controllerIntercepter.MetricInterceptor" />-->
-        <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+
+
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>

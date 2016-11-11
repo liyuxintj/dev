@@ -68,17 +68,9 @@
 
 <div class="container">
 
-    <div class="header">
-        <ul class="nav nav-pills pull-right" role="tablist">
-            <%--<li role="presentation" class="active"><a href="#">Home</a></li>--%>
-            <li role="presentation"><a href="#">注册</a></li>
-            <li role="presentation"><a href="#">登录</a></li>
-        </ul>
-    </div>
-
     <div class="starter-template">
-        <h1>闲着也是闲着</h1>
-        <p class="lead">赶快加入我们.<br> 开始你的畅聊之旅.</p>
+        <h1>没事做个调查</h1>
+        <p class="lead">这是一个简单的网站.<br> Too young too simple.</p>
     </div>
 
 
