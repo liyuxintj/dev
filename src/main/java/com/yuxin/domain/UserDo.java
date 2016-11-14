@@ -1,17 +1,23 @@
 package com.yuxin.domain;
 
+import java.util.Date;
+
 public class UserDo {
     private Long id;
 
-    private String username;
-
-    private String password;
+    private String name;
 
     private String email;
 
+    private String password;
+
     private String mobile;
 
-    private Integer usertype;
+    private Date create;
+
+    private Date update;
+
+    private String photo;
 
     public Long getId() {
         return id;
@@ -21,20 +27,12 @@ public class UserDo {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getEmail() {
@@ -45,6 +43,14 @@ public class UserDo {
         this.email = email == null ? null : email.trim();
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
     public String getMobile() {
         return mobile;
     }
@@ -53,11 +59,27 @@ public class UserDo {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public Integer getUsertype() {
-        return usertype;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setUsertype(Integer usertype) {
-        this.usertype = usertype;
+    public void setCreate(Date create) {
+        this.create = create;
+    }
+
+    public Date getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(Date update) {
+        this.update = update;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo == null ? null : photo.trim();
     }
 }

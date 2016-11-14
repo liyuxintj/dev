@@ -14,8 +14,8 @@
         </commentGenerator>
         <!-- <plugin type="ViewPlugin"></plugin> -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://115.28.17.174:3306/boke?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"
-                        userId="root" password="liyuxin">
+                        connectionURL="jdbc:mysql://wanzhege.com:3306/dev?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull"
+                        userId="root" password="***">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -42,6 +42,6 @@
         <!--<table schema="boke" tableName="user" domainObjectName="UserDo"/>-->
         <!--<table schema="boke" tableName="usertype" domainObjectName="UserTypeDo"/>-->
         <!--<table schema="boke" tableName="article" domainObjectName="ArticleDo"/>-->
-        <table schema="boke" tableName="question" domainObjectName="QuestionDo"/>
+        <table schema="dev" tableName="user" domainObjectName="UserDo"/>
     </context>
 </generatorConfiguration>
