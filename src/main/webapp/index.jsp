@@ -18,6 +18,10 @@
             padding: 40px 15px;
             text-align: center;
         }
+        p {
+            line-height:40px;
+            font-size: 20px;
+        }
     </style>
     <!-- Bootstrap core CSS -->
     <%--<link href="dist/css/bootstrap.min.css" rel="stylesheet">--%>
@@ -81,15 +85,15 @@
     </div>
 
 
-    <div class="panel panel-primary">
+    <%--<div class="panel panel-primary">--%>
 
-    </div>
+    <%--</div>--%>
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">笑话</h3>
+            <h3 class="panel-title">每日精选笑话</h3>
         </div>
-        <div class="panel-body" id="xiaohua">
+        <div class="panel-body" id="xiaohua" >
         </div>
     </div>
 
@@ -127,7 +131,11 @@
                 var list = data["list"];
                 var content="";
                 for(var i = 0;i<list.length;i++){
-                    content =content + list[i]["text"]+"<br><br>";
+                    if(i%2==1){
+                        content =content +"<p style='color: #269abc;'>"+(i+1)+"&nbsp;&nbsp;&nbsp;" +list[i]["text"]+"</p><br>";
+                    }else {
+                        content =content+"<p style='color: #843534;'>"+ +(i+1)+"&nbsp;&nbsp;&nbsp;" +list[i]["text"]+"</p><br>";
+                    }
 
                 }
                 $("#xiaohua").html(content);
