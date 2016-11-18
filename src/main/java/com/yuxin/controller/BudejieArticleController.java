@@ -1,6 +1,7 @@
 package com.yuxin.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yuxin.util.HttpClientUtil;
 import org.apache.commons.lang.StringUtils;
@@ -25,7 +26,19 @@ public class BudejieArticleController {
         }
         String url = String.format(duanziUrl,start);
         String result=  HttpClientUtil.get(url);
-        JSONObject response = JSON.parseObject(result);
+        JSONObject resultJson = JSON.parseObject(result);
+        JSONObject response = new JSONObject();
+        JSONArray list = resultJson.getJSONArray("list");
+        JSONArray responseList = new JSONArray();
+        if(list!=null){
+            for(int i=0;i<list.size();i++){
+                JSONObject temp = new JSONObject();
+                temp.put("text",list.getJSONObject(i).get("text"));
+                responseList.add(temp);
+            }
+        }
+        response.put("list",responseList);
+        response.put("info",resultJson.getJSONObject("info"));
         return response;
     }
 }

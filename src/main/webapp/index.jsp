@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">闲听网</a>
+            <a class="navbar-brand" href="#">笑话大全</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -70,14 +70,14 @@
     <div class="header">
         <ul class="nav nav-pills pull-right" role="tablist">
             <%--<li role="presentation" class="active"><a href="#">Home</a></li>--%>
-            <li role="presentation"><a href="#">注册</a></li>
-            <li role="presentation"><a href="#">登录</a></li>
+            <%--<li role="presentation"><a href="#">注册</a></li>--%>
+            <%--<li role="presentation"><a href="#">登录</a></li>--%>
         </ul>
     </div>
 
     <div class="starter-template">
         <h1>闲着也是闲着</h1>
-        <p class="lead">赶快加入我们.<br> 开始你的畅聊之旅.</p>
+        <p class="lead">看看笑话吧.<br> 开始你的开心之旅.</p>
     </div>
 
 
@@ -87,9 +87,9 @@
 
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">注册</h3>
+            <h3 class="panel-title">笑话</h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" id="xiaohua">
         </div>
     </div>
 
@@ -114,6 +114,25 @@
     $("#support").click(function () {
         $(".alert-danger").css("display","none");
         $(".alert-success").css("display","");
+    });
+    $(document).ready(function(){
+        $.ajax({
+            url: "/budejie/getBudejieArticle",
+            dataType:"json",
+            success: function(data){
+//                var data = JSON.parse(data);
+                //var str = JSON.stringify(data)
+                //alert(str);
+                //var data = data.parseJSON();
+                var list = data["list"];
+                var content="";
+                for(var i = 0;i<list.length;i++){
+                    content =content + list[i]["text"]+"<br><br>";
+
+                }
+                $("#xiaohua").html(content);
+            }
+        });
     });
 
 </script>
