@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>个人网站</title>
+    <title>玉新不得姐笑话网</title>
     <style >
         body {
             padding-top: 50px;
@@ -20,8 +20,7 @@
         }
     </style>
     <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/button.css" rel="stylesheet">
+    <%--<link href="dist/css/bootstrap.min.css" rel="stylesheet">--%>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -54,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">玉新个人网站</a>
+            <a class="navbar-brand" href="#">闲听网</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -83,23 +82,7 @@
 
 
     <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">我帅吗？</h3>
-        </div>
-        <div class="panel-body">
-            请选择，谢谢。
-            <div class="showcase-examples" style="text-align: center">
-                <button id="support" class="button button-3d button-action button-circle button-jumbo"><i class="fa fa-thumbs-up"></i></button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <button id="nosupport" class="button button-3d button-caution button-circle button-jumbo"><i class="fa fa-thumbs-down"></i></button>
-            </div>
-        </div>
-        <div class="alert alert-success" role="alert" style="display: none">
-            <strong>好的!</strong> 有空喝酒兄弟！
-        </div>
-        <div class="alert alert-danger" role="alert" style="display: none">
-            <strong>我擦!</strong> 丫丫的我不帅你帅！
-        </div>
+
     </div>
 
     <div class="panel panel-primary">
