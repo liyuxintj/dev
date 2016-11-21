@@ -43,6 +43,10 @@
 
     <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+
+
+
     <![endif]-->
 </head>
 
@@ -62,7 +66,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">主页</a></li>
-                <li><a href="#about">关于</a></li>
+                <li><a href="./duanzi.jsp">段子</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -82,6 +86,7 @@
     <div class="starter-template">
         <h1>闲着也是闲着</h1>
         <p class="lead">看看笑话吧.<br> 开始你的开心之旅.</p>
+        <p class="lead">看看笑话吧.<br> 请点击导航条-笑话段子.</p>
     </div>
 
 
@@ -119,29 +124,29 @@
         $(".alert-danger").css("display","none");
         $(".alert-success").css("display","");
     });
-    $(document).ready(function(){
-        $.ajax({
-            url: "/budejie/getBudejieArticle",
-            dataType:"json",
-            success: function(data){
-//                var data = JSON.parse(data);
-                //var str = JSON.stringify(data)
-                //alert(str);
-                //var data = data.parseJSON();
-                var list = data["list"];
-                var content="";
-                for(var i = 0;i<list.length;i++){
-                    if(i%2==1){
-                        content =content +"<p style='color: #269abc;'>"+(i+1)+"&nbsp;&nbsp;&nbsp;" +list[i]["text"]+"</p><br>";
-                    }else {
-                        content =content+"<p style='color: #843534;'>"+ +(i+1)+"&nbsp;&nbsp;&nbsp;" +list[i]["text"]+"</p><br>";
-                    }
-
-                }
-                $("#xiaohua").html(content);
-            }
-        });
-    });
+//    $(document).ready(function(){
+//        $.ajax({
+//            url: "/budejie/getBudejieArticle",
+//            dataType:"json",
+//            success: function(data){
+////                var data = JSON.parse(data);
+//                //var str = JSON.stringify(data)
+//                //alert(str);
+//                //var data = data.parseJSON();
+//                var list = data["list"];
+//                var content="";
+//                for(var i = 0;i<list.length;i++){
+//                    if(i%2==1){
+//                        content =content +"<p style='color: #269abc;'>"+(i+1)+"&nbsp;&nbsp;&nbsp;" +list[i]["text"]+"</p><br>";
+//                    }else {
+//                        content =content+"<p style='color: #843534;'>"+ +(i+1)+"&nbsp;&nbsp;&nbsp;" +list[i]["text"]+"</p><br>";
+//                    }
+//
+//                }
+//                $("#xiaohua").html(content);
+//            }
+//        });
+//    });
 
 </script>
 </body>
