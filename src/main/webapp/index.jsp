@@ -94,13 +94,13 @@
 
     <%--</div>--%>
 
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">每日精选笑话</h3>
-        </div>
-        <div class="panel-body" id="xiaohua" >
-        </div>
-    </div>
+    <%--<div class="panel panel-primary">--%>
+        <%--<div class="panel-heading">--%>
+            <%--<h3 class="panel-title">每日精选笑话</h3>--%>
+        <%--</div>--%>
+        <%--<div class="panel-body" id="xiaohua" >--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
 
 
