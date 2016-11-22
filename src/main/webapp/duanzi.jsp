@@ -140,8 +140,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页</a></li>
-                <li><a href="./duanzi.jsp">段子</a></li>
+                <li><a href="index.jsp">主页</a></li>
+                <li  class="active"><a href="./duanzi.jsp">段子</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div><!--/.nav-collapse -->

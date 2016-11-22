@@ -22,6 +22,24 @@
             line-height:40px;
             font-size: 20px;
         }
+        img{
+            width: 50px;
+            height: 50px;
+        }
+        .myli{
+           list-style: none;
+           line-height: 25px;
+           border-bottom: 1px solid #e8e8e8;
+           margin-top: 30px;
+           padding-bottom: 20px;
+       }
+    .showtime{
+        float: right;
+    }
+
+    .textdiv{
+        padding-left:55px;
+    }
     </style>
     <!-- Bootstrap core CSS -->
     <%--<link href="dist/css/bootstrap.min.css" rel="stylesheet">--%>
@@ -44,7 +62,7 @@
     <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 
-
+    <script src="/dist/js/dropload.min.js"></script>
 
 
     <![endif]-->
@@ -65,15 +83,15 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页</a></li>
-                <li><a href="./duanzi.jsp">段子</a></li>
+                <li class="active"><a href="#">搞笑段子</a></li>
+                <li><a href="#">搞笑视频</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
-<div class="container">
+<div class="container content">
 
     <div class="header">
         <ul class="nav nav-pills pull-right" role="tablist">
@@ -86,7 +104,6 @@
     <div class="starter-template">
         <h1>闲着也是闲着</h1>
         <p class="lead">看看笑话吧.<br> 开始你的开心之旅.</p>
-        <p class="lead">看看笑话吧.<br> 请点击导航条-笑话段子.</p>
     </div>
 
 
@@ -94,17 +111,16 @@
 
     <%--</div>--%>
 
-    <%--<div class="panel panel-primary">--%>
-        <%--<div class="panel-heading">--%>
-            <%--<h3 class="panel-title">每日精选笑话</h3>--%>
-        <%--</div>--%>
-        <%--<div class="panel-body" id="xiaohua" >--%>
-        <%--</div>--%>
-    <%--</div>--%>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">每日精选笑话</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="lists">
 
-
-
-
+            </ul>
+        </div>
+    </div>
 
 </div><!-- /.container -->
 
@@ -147,6 +163,62 @@
 //            }
 //        });
 //    });
+
+    var counter = 1;
+    var start = "";
+    $('.content').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+            $.ajax({
+                type: 'GET',
+//                    url: 'json/more.json',
+                url: '/budejie/getBudejieArticle?start='+start,
+                dataType: 'json',
+                success: function(data){
+                    var content = "";
+                    start = data.info.np;
+
+                    var list = data["list"];
+
+                    for(var i = 0; i < list.length; i++){
+                        if(list.length<20){
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                            break;
+                        }
+//                        float: right;
+                        if(i%2==1){
+                            content =content +"<li class='myli' style='color: #269abc;'>"+"<div><img src='"+list[i]["pic"]+"'><span>"+
+                                    list[i]["name"]+"</span><span class='showtime'>"+list[i]["passtime"]+"</span></div><div class='textdiv'> " +list[i]["text"]+"<div></li>";
+                        }else {
+                            content =content+"<li class='myli' style='color: #843534;'>"+"<div><img src='"+list[i]["pic"]+"'><span>"+
+                                    list[i]["name"]+"</span><span class='showtime'>"+list[i]["passtime"]+"</span></div><div class='textdiv'>" +list[i]["text"]+"<div></li>";
+                        }
+                        counter++;
+
+
+                    }
+//                        // 为了测试，延迟1秒加载
+//                        setTimeout(function(){
+//                            $('.lists').append(result);
+//                            // 每次数据加载完，必须重置
+//                            me.resetload();
+//                        },1000);
+
+                    $('.lists').append(content);
+                    // 每次数据加载完，必须重置
+                    me.resetload();
+                },
+                error: function(xhr, type){
+                    alert('Ajax error!');
+                    // 即使加载出错，也得重置
+                    me.resetload();
+                }
+            });
+        }
+    });
 
 </script>
 </body>

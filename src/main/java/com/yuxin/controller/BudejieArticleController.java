@@ -34,6 +34,9 @@ public class BudejieArticleController {
             for(int i=0;i<list.size();i++){
                 JSONObject temp = new JSONObject();
                 temp.put("text",list.getJSONObject(i).get("text"));
+                temp.put("passtime",list.getJSONObject(i).get("passtime"));
+                temp.put("name",list.getJSONObject(i).getJSONObject("u").get("name"));
+                temp.put("pic",list.getJSONObject(i).getJSONObject("u").getJSONArray("header").get(1));
                 responseList.add(temp);
             }
         }
