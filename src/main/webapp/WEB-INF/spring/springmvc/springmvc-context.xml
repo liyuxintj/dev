@@ -17,24 +17,6 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <bean name="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
-        <constructor-arg>
-            <list>
-                <bean class="java.net.InetSocketAddress">
-                    <constructor-arg>
-                        <value>${memcache.nodelist}</value>
-                    </constructor-arg>
-                    <constructor-arg>
-                        <value>${memcache.port}</value>
-                    </constructor-arg>
-                </bean>
-            </list>
-        </constructor-arg>
-        <property name="connectionPoolSize" value="${memcache.connectionPoolSize}"></property>
-    </bean>
-    <bean id="xmemcachedClient" factory-bean="memcachedClientBuilder" factory-method="build" destroy-method="shutdown"/>
-
-
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

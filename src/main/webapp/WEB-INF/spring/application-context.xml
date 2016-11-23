@@ -20,6 +20,25 @@
         <property name="properties" ref="configProperties" />
     </bean>
 
+
+    <bean name="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
+        <constructor-arg>
+            <list>
+                <bean class="java.net.InetSocketAddress">
+                    <constructor-arg>
+                        <value>${memcache.nodelist}</value>
+                    </constructor-arg>
+                    <constructor-arg>
+                        <value>${memcache.port}</value>
+                    </constructor-arg>
+                </bean>
+            </list>
+        </constructor-arg>
+        <property name="connectionPoolSize" value="${memcache.connectionPoolSize}"></property>
+    </bean>
+    <bean id="xmemcachedClient" factory-bean="memcachedClientBuilder" factory-method="build" destroy-method="shutdown"/>
+
+
     <bean class="com.yuxin.util.LogConfig" init-method="reload">
         <constructor-arg>
             <value>${logback}</value>

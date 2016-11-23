@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyMemcachedClient {
     @Autowired
-    private MemcachedClient xmemcachedClient;
+    MemcachedClient xmemcachedClient;
+
 
     /**
      * Get方法, 转换结果类型并屏蔽异常, 仅返回Null.

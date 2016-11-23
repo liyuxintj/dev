@@ -18,3 +18,5 @@ target
 *.diff
 *.patch
 *.tmp
+
+*.sh

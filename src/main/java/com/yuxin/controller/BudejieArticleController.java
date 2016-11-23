@@ -26,32 +26,35 @@ public class BudejieArticleController {
     @RequestMapping(value = "/getBudejieArticle")
     @ResponseBody
     public JSONObject getBudejieArticle(String start) throws IOException {
+
         if(StringUtils.isBlank(start)){
             start = "0";
-        }else {
-            String key =  "duanzi:"+start;
-            if(memcachedClient.get(key)==null){
+        }
+        String key =  "duanzi:"+start;
+        JSONObject response = memcachedClient.get(key);
+        if(response==null){
+            String url = String.format(duanziUrl,start);
+            String result=  HttpClientUtil.get(url);
+            JSONObject resultJson = JSON.parseObject(result);
+            JSONArray list = resultJson.getJSONArray("list");
+            JSONArray responseList = new JSONArray();
+            if(list!=null){
+                for(int i=0;i<list.size();i++){
+                    JSONObject temp = new JSONObject();
+                    temp.put("text",list.getJSONObject(i).get("text"));
+                    temp.put("passtime",list.getJSONObject(i).get("passtime"));
+                    temp.put("name",list.getJSONObject(i).getJSONObject("u").get("name"));
+                    temp.put("pic",list.getJSONObject(i).getJSONObject("u").getJSONArray("header").get(1));
+                    responseList.add(temp);
+                }
+            }
+            response = new JSONObject();
+            response.put("list",responseList);
+            response.put("info",resultJson.getJSONObject("info"));
+            memcachedClient.set(key,30*60,response);
+        }
 
-            }
-        }
-        String url = String.format(duanziUrl,start);
-        String result=  HttpClientUtil.get(url);
-        JSONObject resultJson = JSON.parseObject(result);
-        JSONObject response = new JSONObject();
-        JSONArray list = resultJson.getJSONArray("list");
-        JSONArray responseList = new JSONArray();
-        if(list!=null){
-            for(int i=0;i<list.size();i++){
-                JSONObject temp = new JSONObject();
-                temp.put("text",list.getJSONObject(i).get("text"));
-                temp.put("passtime",list.getJSONObject(i).get("passtime"));
-                temp.put("name",list.getJSONObject(i).getJSONObject("u").get("name"));
-                temp.put("pic",list.getJSONObject(i).getJSONObject("u").getJSONArray("header").get(1));
-                responseList.add(temp);
-            }
-        }
-        response.put("list",responseList);
-        response.put("info",resultJson.getJSONObject("info"));
+
         return response;
     }
 }

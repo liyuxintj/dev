@@ -33,11 +33,13 @@
            margin-top: 30px;
            padding-bottom: 20px;
        }
-    .showtime{
-        float: right;
-    }
+        .showtime{
+            padding-left: 55px;
+            color : #5e5e5e;
+        }
 
     .textdiv{
+        margin-top: 10px;
         padding-left:55px;
     }
     </style>
@@ -191,10 +193,10 @@
 //                        float: right;
                         if(i%2==1){
                             content =content +"<li class='myli' style='color: #269abc;'>"+"<div><img src='"+list[i]["pic"]+"'><span>"+
-                                    list[i]["name"]+"</span><span class='showtime'>"+list[i]["passtime"]+"</span></div><div class='textdiv'> " +list[i]["text"]+"<div></li>";
+                                    list[i]["name"]+"</span><br><span class='showtime'>"+list[i]["passtime"]+"</span><div class='textdiv'> " +list[i]["text"]+"<div></div></li>";
                         }else {
                             content =content+"<li class='myli' style='color: #843534;'>"+"<div><img src='"+list[i]["pic"]+"'><span>"+
-                                    list[i]["name"]+"</span><span class='showtime'>"+list[i]["passtime"]+"</span></div><div class='textdiv'>" +list[i]["text"]+"<div></li>";
+                                    list[i]["name"]+"</span><br><span class='showtime'>"+list[i]["passtime"]+"</span><div class='textdiv'>" +list[i]["text"]+"<div></div></li>";
                         }
                         counter++;
 
