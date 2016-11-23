@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="./dist/image/favicon.jpg">
 
-    <title>玉新不得姐笑话网</title>
+    <title>玩这个网</title>
     <style >
         body {
             padding-top: 50px;
@@ -81,12 +81,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">笑话大全</a>
+            <a class="navbar-brand" href="#">玩这个网</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">搞笑段子</a></li>
-                <li><a href="#">搞笑视频</a></li>
+                <li><a href="#">搞笑视频-开发中</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div><!--/.nav-collapse -->
