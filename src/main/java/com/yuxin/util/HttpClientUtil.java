@@ -34,7 +34,10 @@ public class HttpClientUtil {
 
 
     public static void main(String[] args) throws IOException {
-        String a = HttpClientUtil.get("http://wanzhege.com");
+        //String a = HttpClientUtil.get("http://wanzhege.com");
+        //System.out.println(a);
+        String a = HttpClientUtil.get("http://www.iqiyi.com/dianying/vip.html");
         System.out.println(a);
+        
     }
 }

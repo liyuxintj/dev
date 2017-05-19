@@ -43,5 +43,6 @@
         <!--<table schema="boke" tableName="usertype" domainObjectName="UserTypeDo"/>-->
         <!--<table schema="boke" tableName="article" domainObjectName="ArticleDo"/>-->
         <table schema="dev" tableName="user" domainObjectName="UserDo"/>
+        <table schema="dev" tableName="user" domainObjectName="UserDo"/>
     </context>
 </generatorConfiguration>

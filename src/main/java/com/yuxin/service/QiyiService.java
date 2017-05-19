@@ -10,5 +10,5 @@ import java.util.List;
  * Created by lyx on 2017/5/8.
  */
 public interface QiyiService {
-    JSONArray getQiyiVipFilm() throws IOException;
+    List<Film> getQiyiVipFilm() throws IOException;
 }

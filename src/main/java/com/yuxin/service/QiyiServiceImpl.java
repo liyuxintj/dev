@@ -30,30 +30,30 @@ public class QiyiServiceImpl implements QiyiService{
     @Autowired
     MyMemcachedClient memcachedClient;
     @Test
-    public JSONArray getQiyiVipFilm() throws IOException {
+    public List<Film> getQiyiVipFilm() throws IOException {
         String key = "qiyivipfilm";
-        JSONArray array = memcachedClient.get(key);
-        if(array==null) {
+//        JSONArray array = memcachedClient.get(key);
+        List<Film> films = memcachedClient.get(key);
+        if(films==null) {
             String html = HttpClientUtil.get("http://www.iqiyi.com/dianying/vip.html");
             Document document = Jsoup.parse(html);
             Elements elements = document.select(".site-piclist_pic_link");
-//            films = new ArrayList<Film>();
-            array = new JSONArray();
+            films = new ArrayList<Film>();
             for (Element element : elements) {
-//                Film film = new Film();
-//                film.setImg(element.children().first().attr("src"));
-//                film.setName(element.attr("title"));
-//                film.setSrc(element.attr("href"));
-//                films.add(film);
+                Film film = new Film();
+                film.setImg(element.children().first().attr("src"));
+                film.setName(element.attr("title"));
+                film.setSrc(element.attr("href"));
+                films.add(film);
 
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("img",element.children().first().attr("src"));
-                jsonObject.put("title",element.attr("title"));
-                jsonObject.put("source",element.attr("href"));
-                array.add(jsonObject);
+//                JSONObject jsonObject = new JSONObject();
+//                jsonObject.put("img",element.children().first().attr("src"));
+//                jsonObject.put("title",element.attr("title"));
+//                jsonObject.put("source",element.attr("href"));
+//                array.add(jsonObject);
             }
-            memcachedClient.set(key, 12 * 60 * 60 * 60, array);
+            memcachedClient.set(key, 12 * 60 * 60 * 60, films);
         }
-        return array;
+        return films;
     }
 }

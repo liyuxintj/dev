@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lyx
@@ -160,8 +161,8 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="index.jsp">主页</a></li>
-                <li  class="active"><a href="./duanzi.jsp">段子</a></li>
+                <li><a href="../../index.jsp">主页</a></li>
+                <li  class="active"><a href="../../duanzi.jsp">段子</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -203,7 +204,9 @@
                 <!--video-->
 
                 <!--collection-->
-
+                <c:forEach items="films" var="film">
+                    ${film.name}
+                </c:forEach>
                 <li>
                     <div class="site-piclist_pic">
                         <a class="site-piclist_pic_link" href="http://www.iqiyi.com/v_19rrazv43w.html" title="一条狗的使命" alt="一条狗的使命" target="iqiyiplay">
@@ -798,56 +801,6 @@
 <%--<script src="/dist/js/zepto.min.js"></script>--%>
 <script src="/dist/js/dropload.min.js"></script>
 <script>
-    $(document).ready(function() {
-        var start = "";
-        $.ajax({
-            type: 'GET',
-//                    url: 'json/more.json',
-            url: '/qiyifilms?start=' + start,
-            dataType: 'json',
-            success: function (data) {
-                var content = "";
-                start = data.start;
-                var list = data["films"];
-
-                for (var i = 0; i < list.length; i++) {
-                    if (list.length < 20) {
-                        // 锁定
-                        me.lock();
-                        // 无数据
-                        me.noData();
-                        break;
-                    }
-//                        float: right;
-                    if (i % 2 == 1) {
-                        content = content + "<li class='myli' style='color: #269abc;'>" + "<div><img src='" + list[i]["img"] + "'><span>" +
-                            list[i]["title"] + "</span><br><span class='showtime'>" + list[i]["source"] + "</span><div class='textdiv'> " + list[i]["title"] + "<div></div></li>";
-                    } else {
-                        content = content + "<li class='myli' style='color: #843534;'>" + "<div><img src='" + list[i]["img"] + "'><span>" +
-                            list[i]["title"] + "</span><br><span class='showtime'>" + list[i]["source"] + "</span><div class='textdiv'>" + list[i]["title"] + "<div></div></li>";
-                    }
-
-
-                }
-//                        // 为了测试，延迟1秒加载
-//                        setTimeout(function(){
-//                            $('.lists').append(result);
-//                            // 每次数据加载完，必须重置
-//                            me.resetload();
-//                        },1000);
-
-                $('.lists').append(content);
-            }
-
-
-        });
-    });
-
-
-
-
-
-
 </script>
 </body>
 </html>

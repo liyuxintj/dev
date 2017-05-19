@@ -86,7 +86,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">搞笑段子</a></li>
-                <li ><a href="./qiyivipfilm.jsp">爱奇奇vip电影</a></li>
+                <li ><a href="/qiyifilms">爱奇奇vip电影</a></li>
                 <li><a href="#">搞笑视频-开发中</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
